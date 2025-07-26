@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{title}">Default Title</title>
+</head>
+<body>
+    <h1 th:text="#{greeting}">Default Greeting</h1>
+    <p>Locale actual: <span th:text="${#locale}">en</span></p>
+
+    <div>
+        <a href="?lang=es">Español</a> |
+        <a href="?lang=pt">Português</a>
+    </div>
+
+    <p th:text="#{language.change}">Change language</p>
+    <p th:text="#{test}">Test</p>
+</body>
+</html>
