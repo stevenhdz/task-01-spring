@@ -1,0 +1,67 @@
+### Registro de usuario (RF1)
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+Accept-Language: pt
+
+{
+  "name": "Usuario Prueba",
+  "email": "prueba@example.com",
+  "password": "123456"
+}
+
+### Login (RF2)
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+Accept-Language: pt
+
+{
+  "email": "prueba@example.com",
+  "password": "123456"
+}
+
+### Solicitar recuperación de contraseña (RF3)
+POST http://localhost:8080/api/auth/forgot-password
+Content-Type: application/json
+Accept-Language: pt
+
+{
+  "email": "prueba@example.com"
+}
+
+### Resetear contraseña (RF3)
+POST http://localhost:8080/api/auth/reset-password
+Content-Type: application/json
+Accept-Language: pt
+
+{
+  "token": "token-que-recibiste-por-consola",
+  "newPassword": "nuevaPassword123"
+}
+
+### Obtener lista completa de productos (RF4)
+GET http://localhost:8080/api/products
+Accept: application/json
+
+### Obtener lista de productos filtrados por categoría (ejemplo hamburguesas)
+GET http://localhost:8080/api/products?category=hamburguesas
+Accept: application/json
+
+### Obtener detalle de producto por ID (RF5)
+GET http://localhost:8080/api/products/1
+Accept: application/json
+
+### Buscar productos por palabra clave (RF6)
+GET http://localhost:8080/api/products/search?q=bbq
+Accept: application/json
+
+### Crear nuevo producto (solo si tienes permiso y endpoint para crear productos)
+POST http://localhost:8080/api/products
+Content-Type: application/json
+
+{
+  "name": "Hamburguesa Especial",
+  "category": "hamburguesas",
+  "price": 17000,
+  "imageUrl": "https://example.com/images/hamburguesa-especial.jpg",
+  "description": "Hamburguesa con ingredientes premium"
+}
