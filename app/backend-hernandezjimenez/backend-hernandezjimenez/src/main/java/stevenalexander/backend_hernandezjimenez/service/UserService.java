@@ -52,7 +52,7 @@ public class UserService {
         PasswordResetToken prt = new PasswordResetToken(token, user, expiry);
         tokenRepository.save(prt);
 
-        String link = "http://localhost:3000/reset?token=" + token;
+        String link = "http://localhost:3000/#/reset?token=" + token;
         emailService.sendPasswordRecoveryEmail(user.getEmail(), link, locale);
 
         return link;

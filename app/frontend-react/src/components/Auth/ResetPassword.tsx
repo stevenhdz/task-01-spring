@@ -1,25 +1,34 @@
-"use client";
-
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { resetPassword } from '../../api/auth';
 import { useTranslation } from 'react-i18next';
 
 const ResetPassword: React.FC = () => {
   const { t } = useTranslation();
+  const location = useLocation();
+
   const [token, setToken] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    setToken(urlParams.get('token') || '');
-  }, []);
+    const params = new URLSearchParams(location.search);
+    const tokenFromUrl = params.get('token') || '';
+    setToken(tokenFromUrl);
+  }, [location.search]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!token) {
+      setMessage(t('error') + ': Token missing');
+      return;
+    }
+
     setLoading(true);
     setMessage(null);
+
     try {
       await resetPassword(token, newPassword);
       setMessage(`${t('success')}: ${t('resetPassword')}`);

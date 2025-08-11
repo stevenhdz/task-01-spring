@@ -15,8 +15,8 @@ const ForgotPassword: React.FC = () => {
     setLoading(true);
     setMessage(null);
     try {
-      await forgotPassword(email);
-      setMessage(t('success') + ': ' + t('forgotPassword'));
+      const result = await forgotPassword(email);
+      setMessage(t('success') + ': ' + result?.data?.message);
       setEmail('');
     } catch (error: any) {
       setMessage(error.response?.data?.message || t('error'));
