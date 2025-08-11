@@ -54,14 +54,17 @@ Accept: application/json
 GET http://localhost:8080/api/products/search?q=bbq
 Accept: application/json
 
-### Crear nuevo producto (solo si tienes permiso y endpoint para crear productos)
+### Actualizar nuevo producto (solo si tienes permiso y endpoint para crear productos)
 POST http://localhost:8080/api/products
 Content-Type: application/json
 
-{
-  "name": "Hamburguesa Especial",
-  "category": "hamburguesas",
-  "price": 17000,
-  "imageUrl": "https://example.com/images/hamburguesa-especial.jpg",
-  "description": "Hamburguesa con ingredientes premium"
-}
+  {
+        "id": 1,
+        "name": "Classic Cheeseburger2",
+        "description": "1Delicious beef patty with cheese.",
+        "price": 8.99,
+        "imageUrl": "https://example.com/cheeseburger.jpg",
+        "category": {
+            "id": 1
+        }
+    }

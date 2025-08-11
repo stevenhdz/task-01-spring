@@ -41,45 +41,89 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} aria-label="form-login">
-        <h2>{t('login')}</h2>
+   <div
+  style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '100vh',
+    padding: '1rem',
+    boxSizing: 'border-box',
+  }}
+>
+  <form
+    onSubmit={handleSubmit}
+    aria-label="form-login"
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100%',
+      maxWidth: '400px',
+      gap: '1rem',
+      backgroundColor: '#f9f9f9',
+      padding: '2rem',
+      borderRadius: '8px',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+    }}
+  >
+    <h2 style={{ textAlign: 'center' }}>{t('login')}</h2>
 
-        <label>
-          {t('email')}:
-          <input
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={onChange}
-            required
-          />
-        </label>
+    <label style={{ display: 'flex', flexDirection: 'column', fontWeight: '600' }}>
+      {t('email')}:
+      <input
+        name="email"
+        type="email"
+        value={form.email}
+        onChange={onChange}
+        required
+        style={{ padding: '0.5rem', fontSize: '1rem', marginTop: '0.25rem' }}
+      />
+    </label>
 
-        <label>
-          {t('password')}:
-          <input
-            name="password"
-            type="password"
-            value={form.password}
-            onChange={onChange}
-            required
-            minLength={6}
-          />
-        </label>
+    <label style={{ display: 'flex', flexDirection: 'column', fontWeight: '600' }}>
+      {t('password')}:
+      <input
+        name="password"
+        type="password"
+        value={form.password}
+        onChange={onChange}
+        required
+        minLength={6}
+        style={{ padding: '0.5rem', fontSize: '1rem', marginTop: '0.25rem' }}
+      />
+    </label>
 
-        <button type="submit" disabled={loading}>
-          {loading ? t('loading') : t('submit')}
-        </button>
+    <button
+      type="submit"
+      disabled={loading}
+      style={{
+        padding: '0.75rem',
+        fontSize: '1rem',
+        fontWeight: '700',
+        cursor: loading ? 'not-allowed' : 'pointer',
+        backgroundColor: loading ? '#ccc' : '#0070f3',
+        color: '#fff',
+        border: 'none',
+        borderRadius: '4px',
+      }}
+    >
+      {loading ? t('loading') : t('submit')}
+    </button>
 
-        {message && <p role="alert">{message}</p>}
-      </form>
+    {message && (
+      <p role="alert" style={{ color: 'red', textAlign: 'center', marginTop: '0.5rem' }}>
+        {message}
+      </p>
+    )}
+  </form>
 
-      <div style={{ marginTop: '1rem' }}>
-        <Link to="/register">{t('createAccount')}</Link> |{' '}
-        <Link to="/forgot">{t('forgotPassword')}</Link>
-      </div>
-    </div>
+  <div style={{ marginTop: '1rem', textAlign: 'center' }}>
+    <Link to="/register">{t('createAccount')}</Link> |{' '}
+    <Link to="/forgot">{t('forgotPassword')}</Link>
+  </div>
+</div>
+
   );
 };
 

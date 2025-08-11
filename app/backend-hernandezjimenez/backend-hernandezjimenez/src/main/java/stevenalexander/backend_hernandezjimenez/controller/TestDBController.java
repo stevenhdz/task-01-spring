@@ -15,8 +15,9 @@ public class TestDBController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    private MessageSource messageSource;
 
+    @Autowired
+    private MessageSource messageSource;
 
     @GetMapping
     public String testConnection(Locale locale) {
