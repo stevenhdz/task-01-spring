@@ -13,8 +13,8 @@ interface Props {
 const ProductList: React.FC<Props> = ({ products, onSelect }) => {
   const { t } = useTranslation();
   const { token } = useAuth();
-  
-  if (products.length === 0) return <p>{t('error')}: No hay productos</p>;
+
+  if (products.length === 0) return <p>{t('error')}: {t('no_products')}</p>;
 
   return (
     <ul>

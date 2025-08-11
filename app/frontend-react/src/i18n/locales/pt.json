@@ -70,5 +70,7 @@
   "update": "Atualizar",
   "error": "Erro ao entrar",
   "createAccount": "Criar conta",
-  "forgotPassword": "Esqueci a senha"
+  "forgotPassword": "Esqueci a senha",
+  "no_products": "Nenhum produto disponível",
+  "close": "Fechar"
 }

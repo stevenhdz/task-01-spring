@@ -71,5 +71,7 @@
   "update": "Update",
   "error": "Login error",
   "createAccount": "Create Account",
-  "forgotPassword": "Forgot Password"
+  "forgotPassword": "Forgot Password",
+  "no_products": "No products available",
+  "close": "Close"
 }

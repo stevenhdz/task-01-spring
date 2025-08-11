@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { getProductById, Product } from '../../api/products';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '@/hooks/useAuth';
 
 interface Props {
   id: number;
@@ -14,10 +15,11 @@ const ProductDetail: React.FC<Props> = ({ id, onClose }) => {
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { token } = useAuth();
 
   useEffect(() => {
     setLoading(true);
-    getProductById(id)
+    getProductById(id, token || '')
       .then(res => {
         setProduct(res.data);
         setError(null);

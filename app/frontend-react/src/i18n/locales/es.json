@@ -71,5 +71,7 @@
   "update": "Actualizar",
   "error": "Error al iniciar sesión",
   "createAccount": "Crear cuenta",
-  "forgotPassword": "Olvidé mi contraseña"
+  "forgotPassword": "Olvidé mi contraseña",
+  "no_products": "No hay productos",
+  "close": "Cerrar"
 }
