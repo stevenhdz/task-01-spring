@@ -1,6 +1,6 @@
 task-01
-    folder: hernandezjimenez
+    folder: hernandezjimenez -> backend
 task-o2
-    folder: hernandezjimenez2
+    folder: hernandezjimenez2 -> backend
 task-03
-    folder: app
+    folder: app -> backend + frontend
